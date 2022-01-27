@@ -30,7 +30,6 @@ let postTime = document.getElementById("postTime");
 let recentAndReverse = document.getElementById("recentAndReverse");
 let filter = document.getElementById("filter");
 let getTimeAndDate = document.getElementById("getTimeAndDate");
-let msgDelete = document.getElementById("msgDelete");
 let undo = document.getElementById("undo");
 
 let list = Array.from(document.getElementsByClassName("list"));
@@ -348,7 +347,6 @@ function deleteTask(e) {
   let index = this.dataset.index;
   let tyList = this.parentElement.parentElement.parentElement;
   this.parentElement.parentElement.style.animation = "delete 0.5s";
-  msgDelete.style.display = "block"
   if (tyList.getAttribute("id") == "lists") {
       tasks.splice(index, 1);
       localStorage.setItem("tasks", JSON.stringify(tasks));
