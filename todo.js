@@ -175,3 +175,40 @@ function createTask() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
   render(lists, tasks);
 }
+
+// Format Date
+function formatDate(dateFormat) {
+  let d = new Date(dateFormat.value),
+      mo = new Intl.DateTimeFormat("en", {
+          month: "short",
+      }).format(d),
+      da = new Intl.DateTimeFormat("en", {
+          day: "2-digit",
+      }).format(d);
+  getDateFormat = `${da}-${mo}`;
+  return getDateFormat;
+}
+// Format Time
+function formatTime(timeFormat) {
+  let timeformat = timeFormat.value.split(":"),
+      hours = timeformat[0],
+      minutes = timeformat[1],
+      ampm = hours >= 12 ? "pm" : "am";
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  let strTime = `${hours}:${minutes} ${ampm}`;
+  return strTime;
+}
+
+
+if (localStorage.getItem('itemLabels') === null) {
+  itemLabels = [];
+} else {
+  itemLabels = JSON.parse(localStorage.getItem('itemLabels'));
+}
+let label = document.getElementById("label");
+itemLabels.forEach((el) => {
+  let opt = document.createElement("option");
+  opt.appendChild(document.createTextNode(el));
+  label.appendChild(opt);
+});
