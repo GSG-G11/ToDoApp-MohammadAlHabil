@@ -62,3 +62,11 @@ themeSwitcher.onclick = function () {
       else el.style.border = "none";
   });
 };
+
+// Get the name of user
+start.addEventListener("click", () => {
+  name.textContent = `Hi ${
+  nameInput.value === "" ? "Unknown" : nameInput.value
+}`;
+  closeTab();
+});
