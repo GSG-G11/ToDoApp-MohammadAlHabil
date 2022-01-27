@@ -491,3 +491,19 @@ updateTaskbtn.addEventListener("click", () => {
       closeTab();
   }
 });
+
+// Update changes on object task
+function updateChanges(ObjTask) {
+  if (
+      ObjTask.title == title.value &&
+      ObjTask.desc == desc.value &&
+      date.options[date.selectedIndex].text == ObjTask.date &&
+      time.options[time.selectedIndex].text == ObjTask.time &&
+      label.options[label.selectedIndex].text == ObjTask.label &&
+      document.querySelector('input[name="color"]:checked').value == ObjTask.color
+  ) {
+      return true;
+  } else {
+      return false;
+  }
+}
