@@ -472,3 +472,22 @@ function updateTask(ele) {
         }
     });
 }
+
+// Update Task button(Edit Task)
+updateTaskbtn.addEventListener("click", () => {
+  if (updateChanges(ObjTask)) {
+      closeTab();
+  } else {
+      console.log(ObjTask.desc);
+      console.log(desc.value);
+      ObjTask.title = title.value;
+      ObjTask.desc = desc.value;
+      ObjTask.date = date.options[date.selectedIndex].text;
+      ObjTask.time = time.options[time.selectedIndex].text;
+      ObjTask.label = label.options[label.selectedIndex].text;
+      ObjTask.color = document.querySelector('input[name="color"]:checked').value;
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      render(lists, tasks);
+      closeTab();
+  }
+});
