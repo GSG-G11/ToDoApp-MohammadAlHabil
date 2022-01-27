@@ -111,3 +111,13 @@ function closeTab() {
     model[0].style.display = "none";
     model[1].style.display = "none";
 }
+
+// open the input to write new label
+addLabel.addEventListener("click", openAndCloseAddLabel);
+
+function openAndCloseAddLabel() {
+    plus.classList.toggle("plus");
+    enterLabel.classList.toggle("block");
+    inputLabel.focus();
+    inputLabel.value = "";
+}
