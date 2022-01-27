@@ -78,3 +78,27 @@ if (sessionStorage.getItem("popState") !== "shown") {
       sessionStorage.setItem("popState", "shown");
   });
 }
+
+// Show addTask page
+add.addEventListener("click", () => {
+  updateTaskbtn.style.display = "none";
+  addTask.style.display = "block";
+  showAddTaskPage();
+});
+
+function showAddTaskPage() {
+  document.getElementById("title").value = "";
+  document.getElementById("desc").value = "";
+  // let date = document.getElementById("date");
+  // let time = document.getElementById("time");
+  // let label = document.getElementById("label");
+  // date.selectedIndex = 'None';
+  // time.selectedIndex = 'None';
+  // label.selectedIndex = 'None';
+
+  postDate.textContent = '';
+  postTime.textContent = '';
+
+  getTimeAndDate.style.display = "none";
+  model[1].style.display = "block";
+}
