@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,9 +8,7 @@
   <title>To Do</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/onborading.css" />
   <link rel="stylesheet" href="./css/add.css" />
@@ -18,6 +16,76 @@
 </head>
 
 <body>
+  <section class="container">
+    <header class="lineBelow">
+      <section class="above">
+        <section class="welcomeAndMode">
+          <div class="welcome">
+            <img src="./assets/welcome.svg" alt="" class="Hi">
+            <span id="name" class="name">Unknown</span>
+          </div>
+          <div id="theme-switcher">
+            <label class="switch">
+              <input id="checkbox" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+
+        </section>
+
+        <section class="recentAndFilter">
+          <div id="recentAndReverse" class="custom-select">
+            <select>
+              <option value="0">Recent</option>
+              <option value="1">Recent</option>
+              <option value="2">Reverse</option>
+            </select>
+          </div>
+
+          <div id="filter" class="custom-select wide">
+            <select>
+              <option value="0">Filter</option>
+              <option value="1">None</option>
+              <option value="2">Today</option>
+              <option value="3">Tomorrow</option>
+              <option value="4">Doing</option>
+              <option value="5">Morning</option>
+              <option value="6">Afternoon</option>
+              <option value="7">Evening</option>
+              <option value="8">Night</option>
+            </select>
+          </div>
+
+          <div class="showWay borderDark">
+            <img src="./assets/list.svg" alt="">
+            <img src="./assets/grid.svg" alt="">
+          </div>
+        </section>
+
+      </section>
+    </header>
+
+    <section id="uncheckSection" class="listsSection">
+      <ul class="lists" id="lists">
+
+      </ul>
+    </section>
+
+    <section id="checkedSection" class="listsSection">
+      <ul class="lists" id="listOfChecked">
+
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <button id="add" class="add tooltip"><img src="./assets/add.svg" alt="" class="addIcon" /></button>
+      <section class="below">
+        <button id="uncheck" class="welcomeAndMode sectionWord wordActive">To Do</button>
+        <button id="checked" class="recentAndFilter sectionWord">Done</button>
+      </section>
+    </footer>
+
+  </section>
 
 </body>
 
