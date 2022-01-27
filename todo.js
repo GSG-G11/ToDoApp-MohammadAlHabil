@@ -529,3 +529,33 @@ function moveCheckedTask(e) {
         render(lists, tasks);
     }, 400);
 }
+
+// Get checked Tasks from localStorage
+function getCheckedTasks() {
+  checked.classList.add("wordActive");
+  uncheck.classList.remove("wordActive");
+  uncheckSection.style.display = "none";
+  checkedSection.style.display = "block";
+  let taskData = localStorage.getItem("tasksChecked");
+  tasksChecked = JSON.parse(taskData);
+  if (!(Array.isArray(tasksChecked) && tasksChecked.length)) {
+      tasksChecked = [];
+      return;
+  }
+  render(listOfChecked, tasksChecked);
+}
+
+// Get Unchecked Tasks from localStorage
+function getUncheckedTasks() {
+  checked.classList.remove("wordActive");
+  uncheck.classList.add("wordActive");
+  checkedSection.style.display = "none";
+  uncheckSection.style.display = "block";
+  let taskData = localStorage.getItem("tasks");
+  tasks = JSON.parse(taskData);
+  if (!(Array.isArray(tasks) && tasks.length)) {
+      tasks = [];
+      return;
+  }
+  render(lists, tasks);
+}
