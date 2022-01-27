@@ -70,3 +70,11 @@ start.addEventListener("click", () => {
 }`;
   closeTab();
 });
+
+// Show onboarding popup
+if (sessionStorage.getItem("popState") !== "shown") {
+  window.addEventListener("load", function () {
+      model[0].style.display = "block";
+      sessionStorage.setItem("popState", "shown");
+  });
+}
