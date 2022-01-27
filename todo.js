@@ -330,3 +330,37 @@ function removeTasks() {
       childs = listOfChecked.lastElementChild;
   }
 }
+
+// LoadTasks from localStorge
+function loadTasks() {
+  let taskData = localStorage.getItem("tasks");
+  tasks = JSON.parse(taskData);
+  if (!(Array.isArray(tasks) && tasks.length)) {
+      tasks = [];
+      return;
+  }
+  render(lists, tasks);
+}
+window.onload = loadTasks;
+
+// Delete Task from localStorge
+function deleteTask(e) {
+  let index = this.dataset.index;
+  let tyList = this.parentElement.parentElement.parentElement;
+  this.parentElement.parentElement.style.animation = "delete 0.5s";
+  msgDelete.style.display = "block"
+  if (tyList.getAttribute("id") == "lists") {
+      tasks.splice(index, 1);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      setTimeout(() => {
+          render(lists, tasks);
+      }, 400);
+  }
+  if (tyList.getAttribute("id") == "listOfChecked") {
+      tasksChecked.splice(index, 1);
+      localStorage.setItem("tasksChecked", JSON.stringify(tasksChecked));
+      setTimeout(() => {
+          render(listOfChecked, tasksChecked);
+      }, 400);
+  }
+}
