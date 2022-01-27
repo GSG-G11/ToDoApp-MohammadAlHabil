@@ -102,3 +102,12 @@ function showAddTaskPage() {
   getTimeAndDate.style.display = "none";
   model[1].style.display = "block";
 }
+
+// Close the all popup
+close[0].addEventListener("click", closeTab);
+close[1].addEventListener("click", closeTab);
+
+function closeTab() {
+    model[0].style.display = "none";
+    model[1].style.display = "none";
+}
