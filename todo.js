@@ -121,3 +121,18 @@ function openAndCloseAddLabel() {
     inputLabel.focus();
     inputLabel.value = "";
 }
+
+// Get the label that created by the user and put it in select label
+let labelsData = localStorage.getItem("itemLabels");
+itemLabels = JSON.parse(labelsData);
+save.addEventListener("click", () => {
+    let valueOfLabel = inputLabel.value;
+    let label = document.getElementById("label");
+    let opt = document.createElement("option");
+    opt.appendChild(document.createTextNode(valueOfLabel));
+    opt.value = valueOfLabel;
+    label.appendChild(opt);
+    itemLabels.push(valueOfLabel);
+    localStorage.setItem("itemLabels", JSON.stringify(itemLabels));
+    openAndCloseAddLabel();
+});
