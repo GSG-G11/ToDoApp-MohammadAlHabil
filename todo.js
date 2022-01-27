@@ -136,3 +136,9 @@ save.addEventListener("click", () => {
     localStorage.setItem("itemLabels", JSON.stringify(itemLabels));
     openAndCloseAddLabel();
 });
+
+// Add event to addTask button
+addTask.addEventListener("click", () => {
+  createTask();
+  closeTab();
+});
