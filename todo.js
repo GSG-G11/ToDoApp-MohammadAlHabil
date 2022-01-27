@@ -507,3 +507,25 @@ function updateChanges(ObjTask) {
       return false;
   }
 }
+
+// Add event on buttons (todo, done)
+checked.addEventListener("click", getCheckedTasks);
+uncheck.addEventListener("click", getUncheckedTasks);
+
+function moveCheckedTask(e) {
+    let index = this.parentElement.parentElement.dataset.index;
+    let itemList = tasks[index];
+    let listChildren = Array.from(lists.children);
+
+    listChildren.forEach((el) => {
+        if (el.getAttribute("data-index") == index) el.classList.add("move");
+    });
+
+    setTimeout(() => {
+        tasksChecked.push(itemList);
+        tasks.pop(itemList);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        localStorage.setItem("tasksChecked", JSON.stringify(tasksChecked));
+        render(lists, tasks);
+    }, 400);
+}
