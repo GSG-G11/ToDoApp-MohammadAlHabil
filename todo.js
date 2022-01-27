@@ -142,3 +142,36 @@ addTask.addEventListener("click", () => {
   createTask();
   closeTab();
 });
+
+// Create task and storage it in localStorage
+function createTask() {
+  let title = document.getElementById("title");
+  let desc = document.getElementById("desc");
+  let date = document.getElementById("date");
+  let time = document.getElementById("time");
+  let label = document.getElementById("label");
+  let clr = document.querySelector('input[name="color"]:checked');
+  let selectedDate = date.options[date.selectedIndex].text;
+  let selectedTime = time.options[time.selectedIndex].text;
+  let selectedLabel = label.options[label.selectedIndex].text;
+
+  if (selectedDate == "Pick a date") {
+      selectedDate = formatDate(getDate);
+  }
+  if (selectedTime == "Pick a time") {
+      selectedTime = formatTime(getTime);
+  }
+
+  let task = {
+      title: `${title.value}`,
+      desc: `${desc.value}`,
+      time: `${selectedTime}`,
+      date: `${selectedDate}`,
+      label: `${selectedLabel}`,
+      color: `${clr.value}`,
+  };
+
+  tasks.push(task);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  render(lists, tasks);
+}
